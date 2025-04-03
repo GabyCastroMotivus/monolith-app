@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
  
-
   closeLoginModal() {
     // Logic to close the login modal
     const modal = document.getElementById('id01');
@@ -42,9 +41,10 @@ openLoginModal() {
 
 openSignupModal() {
   // Logic to open the signup modal
+ 
   const modal = document.getElementById('id02');
   if (modal) {
-      modal.style.display = 'block';
+    modal.classList.remove('hidden'); // Remueve la clase 'hidden'
   }
 }
 
