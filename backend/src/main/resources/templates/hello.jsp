@@ -1,7 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head><title>Hello JSP</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello JSP</title>
+</head>
 <body>
-<h2>Hello from JSP!</h2>
+    <h2>Hello from JSP!</h2>
 </body>
 </html>
