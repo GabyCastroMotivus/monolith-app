@@ -1,3 +1,4 @@
 com\example\monolith\MonolithApp.class
+com\example\monolith\controller\ApiController$Greeting.class
 com\example\monolith\controller\ApiController.class
 com\example\monolith\controller\JspController.class
