@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../interface/course'; // Import the Course interface
+import { Course } from '../interface/course';
 import { ContentService } from '../content.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-template',
@@ -8,12 +9,23 @@ import { ContentService } from '../content.service';
   styleUrls: ['./courseTemplate.component.css']
 })
 export class CourseTemplateComponent implements OnInit {
-  //@Input() courseName: Course[] = []; // Initialize courseName property
-  courses: Course[] = []; // Initialize courses property
+  isSidebarOpen = false;
+  courses: Course[] = [];
 
-  constructor(private contentService: ContentService) { }
+  constructor(
+    private contentService: ContentService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.courses =this.contentService.getHtmlContent();
+    this.courses = this.contentService.getHtmlContent();
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  signOut() {
+    this.router.navigate(['/login']);
   }
 }
