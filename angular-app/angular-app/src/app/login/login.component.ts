@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ElementRef  } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() {}
-
-
+  isPasswordInvalid = false;
+  isEmailInvalid = false;
+  email = "";
+  password = ""; 
 
   ngOnInit(): void {
   }
+
+  
+  validateEmail(event: any): void {
+    this.email = event.target.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,}$/;
+    this.isEmailInvalid = !emailRegex.test(this.email);
+  }
  
+  validatePassword(event: any): void {
+    this.password = event.target.value;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/;
+    this.isPasswordInvalid = !passwordRegex.test(this.password);
+  }
+
   closeLoginModal() {
     // Logic to close the login modal
     const modal = document.getElementById('id01');
