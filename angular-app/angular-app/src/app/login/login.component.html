@@ -18,25 +18,29 @@
          Email Address
         </label>
         <div class="mt-1 relative rounded-md shadow-sm">
-         <input class="block w-full pr-10 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 sm:text-sm" required="" id="email" placeholder="Email Address" type="email"/>
+         <input class="block w-full pr-10 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 sm:text-sm" required="" id="email" placeholder="Email Address" type="email"  (input)="validateEmail($event)" />
          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
           <i class="fas fa-envelope text-gray-400">
           </i>
          </div>
         </div>
        </div>
+       <span id="email-validation" *ngIf="isEmailInvalid">Email is invalid</span>      
+        
        <div class="mb-4">
         <label class="block text-sm font-medium text-gray-700" for="password">
          Password
         </label>
         <div class="mt-1 relative rounded-md shadow-sm">
-         <input class="block w-full pr-10 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 sm:text-sm" id="password" required="" placeholder="Password" type="password"/>
+         <input class="block w-full pr-10 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 sm:text-sm" id="password" required="" placeholder="Password" type="password" (input)="validatePassword($event)"  />
          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
           <i class="fas fa-lock text-gray-400">
           </i>
-         </div>
+          </div>
         </div>
-       </div>
+        </div>
+        <span id="password-validation" *ngIf="isPasswordInvalid">Format password is invalid</span>      
+        
        <div class="flex items-center mb-4">
         <input class="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded" id="remember_me" type="checkbox"/>
         <label class="ml-2 block text-sm text-gray-900" for="remember_me">
@@ -44,7 +48,7 @@
         </label>
        </div>
        <div>
-        <button class="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" type="submit" routerLink="/homepage">
+        <button class="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" type="submit" [disabled]="isPasswordInvalid || isEmailInvalid || !email || !password"  routerLink="/homepage">
          Log In
         </button>
        </div>
