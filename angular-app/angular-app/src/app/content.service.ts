@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Course } from './interface/course';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentService {
-  private apiUrl = 'http://your-api-url.com'; // Replace with your API URL
+  private apiUrl = 'http://localhost:8080/api/cursos'; // Replace with your API URL
 
   constructor(private http: HttpClient) { }
-
+/*
   dataCourses: Course[] = [
     {
       "titulo": "Introducción a HTML",
@@ -49,32 +50,42 @@ export class ContentService {
       "imagen": "https://example.com/images/java-course.jpg"
     }
   ];
-  
+  */
 
-  /*getHtmlContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/html-content`);
-  }*/
+  getHtmlContent(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/html`);
+  }
+  /*
   getHtmlContent(): Course[] {
     return this.dataCourses;
   }
+  */
 
   getCssContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/css-content`);
+    return this.http.get(`${this.apiUrl}/css`);
   }
 
   getJavaContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/java-content`);
+    return this.http.get(`${this.apiUrl}/java`);
   }
 
   getJavascriptContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/javascript-content`);
+    return this.http.get(`${this.apiUrl}/js`);
   }
 
   getJqueryContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/jquery-content`);
+    return this.http.get(`${this.apiUrl}/jquery`);
   }
 
   getSqlContent(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/sql-content`);
+    return this.http.get(`${this.apiUrl}/sql`);
+  }
+
+  getAllCourses(): Observable<Course[]> {
+    return this.http.get(`${this.apiUrl}`).pipe(
+      map((data: any) => {
+        return data as Course[];
+      })
+    );
   }
 }

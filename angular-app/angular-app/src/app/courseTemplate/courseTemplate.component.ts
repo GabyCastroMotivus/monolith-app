@@ -18,7 +18,14 @@ export class CourseTemplateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.courses = this.contentService.getHtmlContent();
+    this.contentService.getAllCourses().subscribe({
+      next: (data: Course[]) => {
+        this.courses = data;
+      },
+      error: (err) => {
+        console.error("Error al obtener los cursos: ", err);
+      }
+    });
   }
 
   toggleSidebar() {
