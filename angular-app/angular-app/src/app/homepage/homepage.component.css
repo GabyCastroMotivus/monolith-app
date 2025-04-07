@@ -1,37 +1,233 @@
+:host {
+    --prim: #f16319;
+    --sec: #102557;
+    --white: #fff;
+    --black: #000;
+}
 
-        body {
-            margin: 0;
-            font-family: "Montserrat", sans-serif;
+body { 
+    margin: 0;
+    background-color: #0e1426;
+    font-family: "Montserrat", sans-serif;
+}
+
+main {
+    margin-left: 250px;
+}
+
+header {
+    padding: 80px 0;
+    background: url( '../../assets/images/happy-dev.jpg' ) center top fixed no-repeat;
+    background-size: cover;
+
+    h1 {
+        color: var(--white);
+        font-size: 3.4rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+    }
+
+    h2 {
+        color: var(--white);
+        font-size: 1.8rem;
+        font-weight: normal;
+    }
+
+    a {
+        background-color: var(--prim);
+    }
+}
+
+.w3-sidebar {
+    background-color: var(--sec);
+}
+
+.w3-button {
+    color: var(--white);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+.w3-button:hover {
+    background-color: var(--prim) !important;
+    color: var(--white) !important;
+}
+.w3-left{
+    color: var(--white);
+}
+.w3-jumbo{
+    color: var(--white);
+}
+.course-image {
+    width: 100%;
+    transition: transform 0.3s;
+}
+.course-image:hover {
+    transform: scale(1.05);
+}
+
+.intro {
+    padding: 80px 40px;
+
+    h2, p {
+        color: #fff;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 2.8rem;
+    }
+}
+
+.button-white{
+    color: var(--white);
+    font-weight: bold;
+}
+
+.course-title{
+    font-weight: bold;
+    color: var(--black);
+    font-size: 1em;
+}
+
+.course-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.course-inner {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+.course-card {
+    width: 33%;
+    margin: 30px 0;
+    perspective: 1000px;
+}
+
+.course-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    background-color: var(--prim);
+    /* border-radius: 50%; */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: all .2s;
+
+    img {
+        width: 100px;
+    }
+}
+
+.course-inner:hover .course-btn {
+    transform: rotateY(180deg);
+}
+
+
+/* Position the front and back side */
+.flip-front, .flip-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+
+    p {
+        margin-top: 20px;
+        color: var(--white);
+    }
+  }
+  
+  /* Style the back side */
+  .flip-back {
+    background-color: var(--prim);
+    transform: rotateY(180deg);
+
+    button {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid #516ea2;
+
+    h4, p {
+        color: var(--white);
+    }
+
+    h4 {
+        margin-bottom: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    a {
+        &:hover {
+            color: var(--prim);
         }
-        .w3-sidebar a {
-            font-family: "Roboto", sans-serif;
-        }
-        .w3-button {
-            transition: background-color 0.3s;
-        }
-        .w3-button:hover {
-            background-color: #555;
-            color: white;
-        }
-        .w3-left{
-          color: white;
-        }
-        .w3-jumbo{
-          color:white;
-        }
-        .course-image {
-            width: 100%;
-            transition: transform 0.3s;
-        }
-        .course-image:hover {
-            transform: scale(1.05);
-        }
-        .button-white{
-            color: white;
-            font-weight: bold;
-        }
-        .course-title{
-            font-weight: bold;
-            color: black;
-            font-size: 1em;
-        }
+    }
+
+}
+
+.footer-form {
+    input {
+        margin-bottom: 10px;
+        border: 1px solid #516ea2;
+    }
+
+    .w3-button {
+        background-color: #516ea2;
+    }
+}
+
+.contact-list, .about {
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+.social {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 50%;
+    color: var(--sec);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--prim);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.social-icon i {
+    font-size: 18px;
+}
